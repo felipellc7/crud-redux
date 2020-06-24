@@ -6,6 +6,8 @@ const NewProduct = () => {
   const [name, setName] = useState('')
   const [price, setPrice] = useState(0)
   const dispatch = useDispatch()
+  const loading = useSelector(state => state.products.loading)
+  const error = useSelector(state => state.products.error)
 
   const addProduct = product => dispatch(createNewProductAction(product))
 
@@ -55,6 +57,8 @@ const NewProduct = () => {
                 className="btn btn-primary font-weight-bold text-uppercase d-block w-100"
               >Add Product</button>
             </form>
+            {loading ? <p>Loading...</p> : null}
+            {error ? <p className="alert alert-danger p2 mt-4 text-center">Something went wrong!</p> : null}
           </div>
         </div>
       </div>

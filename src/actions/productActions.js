@@ -9,7 +9,7 @@ export function createNewProductAction(product) {
   return async dispatch => {
     dispatch(addProduct())
     try {
-      await axiosClient.post('/products', product)
+      await axiosClient.post('/hola', product)
       dispatch(addProductSuccess(product))
     } catch (error) {
       console.log(error)
