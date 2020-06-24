@@ -4,16 +4,27 @@ import {
   ADD_PRODUCT_ERROR
 } from './../types'
 import axiosClient from './../config/axios'
+import Swal from 'sweetalert2'
 
 export function createNewProductAction(product) {
   return async dispatch => {
     dispatch(addProduct())
     try {
-      await axiosClient.post('/hola', product)
+      await axiosClient.post('/products', product)
       dispatch(addProductSuccess(product))
+      Swal.fire(
+        'Success',
+        'Product saved succesfully',
+        'success'
+      )
     } catch (error) {
       console.log(error)
       dispatch(addProductError(true))
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops!',
+        text: 'Something went wrong, try again!'
+      })
     }
   }
 }

@@ -34,6 +34,11 @@
       "name": "csd",
       "price": 23,
       "id": 7
+    },
+    {
+      "name": "adqas",
+      "price": 2131,
+      "id": 8
     }
   ]
 }
