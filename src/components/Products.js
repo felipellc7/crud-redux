@@ -1,6 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getProductsAction } from './../actions/productActions'
 
 const Products = () => {
+  const dispatch = useDispatch()
+  // const loading = useSelector(state => state.products.loading)
+
+  useEffect(() => {
+    const loadProducts = () => dispatch(getProductsAction())
+    loadProducts()
+  }, [])
+
+
   return (  
     <>
       <h2 className="text-center my-5">Product List</h2>
