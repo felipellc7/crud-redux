@@ -24,6 +24,16 @@
       "name": "Strawberry Juice",
       "price": "200",
       "id": 5
+    },
+    {
+      "name": "dwe",
+      "price": 23,
+      "id": 6
+    },
+    {
+      "name": "csd",
+      "price": 23,
+      "id": 7
     }
   ]
 }
