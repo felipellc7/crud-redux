@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProductsAction } from './../actions/productActions'
+import Product from './Product';
 
 const Products = () => {
   const dispatch = useDispatch()
@@ -10,6 +11,9 @@ const Products = () => {
     const loadProducts = () => dispatch(getProductsAction())
     loadProducts()
   }, [])
+
+  const products = useSelector(state => state.products.products)
+  console.log('products', products)
 
 
   return (  
@@ -24,7 +28,16 @@ const Products = () => {
           </tr>
         </thead>
         <tbody> 
-
+          {products.length === 0 ? "There aren't products!" : (
+            products.map(product => {
+              return (
+                <Product
+                  key={product.id}
+                  product={product}
+                />
+              )
+            })
+          )}
         </tbody>
       </table>
     </>
