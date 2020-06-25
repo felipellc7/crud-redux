@@ -1,44 +1,9 @@
 {
   "products": [
     {
-      "id": 1,
-      "name": "Carrot Juice",
-      "price": "31111"
-    },
-    {
       "id": 2,
       "name": "Orange Juice",
       "price": "1"
-    },
-    {
-      "name": "Tomato Juice",
-      "price": "300",
-      "id": 3
-    },
-    {
-      "name": "Rib Eye 800g",
-      "price": "200",
-      "id": 4
-    },
-    {
-      "name": "Strawberry Juice",
-      "price": "200",
-      "id": 5
-    },
-    {
-      "name": "dwe",
-      "price": 23,
-      "id": 6
-    },
-    {
-      "name": "csd",
-      "price": 23,
-      "id": 7
-    },
-    {
-      "name": "adqas",
-      "price": 2131,
-      "id": 8
     }
   ]
 }
