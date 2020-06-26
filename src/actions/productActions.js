@@ -7,7 +7,11 @@ import {
   GET_PRODUCTS_ERROR,
   DELETE_PRODUCT,
   DELETE_PRODUCT_SUCCESS,
-  DELETE_PRODUCT_ERROR
+  DELETE_PRODUCT_ERROR,
+  PRODUCT_EDIT,
+  START_PRODUCT_EDIT,
+  PRODUCT_EDIT_SUCCESS,
+  PRODUCT_EDIT_ERROR
 } from './../types'
 import axiosClient from './../config/axios'
 import Swal from 'sweetalert2'
@@ -109,5 +113,44 @@ const deleteProductSuccess = productId => ({
 
 const deleteProductError = status => ({
   type: DELETE_PRODUCT_ERROR,
+  payload: status
+})
+
+
+export function setEditProductAction(product) {
+  return async dispatch => {
+    dispatch(editProduct(product))
+  }
+}
+
+const editProduct = (product) => ({
+  type: PRODUCT_EDIT,
+  payload: product
+})
+
+export function editProductAction(product) {
+  return async dispatch => {
+    dispatch(startEditProduct())
+    try {
+      const response = await axiosClient.put(`/products/${product.id}`, product)
+      console.log(response)
+      dispatch(editProductSuccess(product))
+    } catch(error) {
+      dispatch(editProductError(true))
+    }
+  }
+}
+
+const startEditProduct = () => ({
+  type: START_PRODUCT_EDIT
+})
+
+const editProductSuccess = product => ({
+  type: PRODUCT_EDIT_SUCCESS,
+  payload: product
+})
+
+const editProductError = status => ({
+  type: PRODUCT_EDIT_ERROR,
   payload: status
 })
